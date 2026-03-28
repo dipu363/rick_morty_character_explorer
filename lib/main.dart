@@ -1,6 +1,24 @@
 import 'package:flutter/material.dart';
 
-void main() {
+import 'core/storage/boxes.dart';
+import 'core/storage/hive_service.dart';
+
+
+/// Temporary test method
+void testHive() {
+  final box = Boxes.getFavoritesBox();
+
+  box.put(1, true);
+
+  final value = box.get(1);
+
+  print("Favorite Test: $value");
+}
+void main() async{
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await HiveService.init();
+  testHive();
   runApp(const MyApp());
 }
 
