@@ -1,16 +1,30 @@
 # rick_morty_character_explorer
-
 Rick and Morty Character Explorer with offline-first support.
 
-## Getting Started
+## Used Tech Stack
+-State Management: Riverpod — modern, testable, clean separation
+-Local Storage: Hive — fast, simple, perfect for offline-first
+-Networking: Dio — better error handling than http
+-Pagination: Infinite scroll using ScrollController
 
-This project is a starting point for a Flutter application.
+# Run Instructions
+- [git clone [(https://github.com/dipu363/rick_morty_character_explorer.git)](https://github.com/dipu363/rick_morty_character_explorer)
+- cd rick_morty_character_explorer
+- flutter pub get
+- flutter run
 
-A few resources to get you started if this is your first Flutter project:
+## app are supports:
+✔ API Pagination
+✔ Local Hive Cache
+✔ Favorites Persistence
+✔ Notes Persistence
+✔ Offline First UI
+✔ Smart Background Sync
+✔ Infinite Scroll
+✔ Riverpod State Management
+✔ Clean Architecture
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Author
+## Giyas Uddin
+## Mobile Application Developer
+## Medical System Company Ltd. (Medisys)
