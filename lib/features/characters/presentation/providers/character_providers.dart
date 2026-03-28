@@ -1,6 +1,5 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_riverpod/legacy.dart';
-
 import '../../../../core/network/api_service.dart';
 import '../../data/datasource/character_remote_ds.dart';
 import '../../data/datasource/character_local_ds.dart';
@@ -77,5 +76,9 @@ class CharacterListNotifier extends StateNotifier<List<CharacterModel>> {
 
     isLoading = false;
   }
+
+
+
+
 
 }

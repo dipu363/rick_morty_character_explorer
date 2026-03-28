@@ -25,7 +25,7 @@ class CharacterRepository {
       /// Offline fallback
       final cached = local.getCachedCharacters();
 
-      final merged = _mergeCharacterList(cached);
+      final merged = _mergeCharacterList(await cached);
 
       return merged;
     }
@@ -61,5 +61,11 @@ class CharacterRepository {
 
   void saveEditedCharacter(EditedCharacterModel edited) {
     local.saveEditedCharacter(edited);
+  }
+
+  Future<void> saveNote(
+      CharacterModel character) async {
+
+    await local.saveCharacter(character);
   }
 }

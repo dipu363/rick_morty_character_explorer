@@ -1,4 +1,5 @@
 import '../../../../core/storage/boxes.dart';
+import '../../../../core/storage/hive_service.dart';
 import '../models/character_model.dart';
 import '../models/edited_character_model.dart';
 
@@ -11,7 +12,16 @@ class CharacterLocalDataSource {
       box.put(character.id, character.toJson());
     }
   }
+  /// Save Character
+  Future<void> saveCharacter(
+      CharacterModel character) async {
 
+    final box =
+    HiveService.getCharacterBox();
+
+    await box.put(
+        character.id, character);
+  }
   List<CharacterModel> getCachedCharacters() {
     final box = Boxes.getCharactersBox();
 
@@ -21,7 +31,26 @@ class CharacterLocalDataSource {
 
     return characters;
   }
+/*  Future<List<CharacterModel>> getCachedCharacters() async {
 
+    final box =
+    HiveService.getCharacterBox();
+
+    return box.values.toList();
+  }*/
+  Future<void> saveCharacters(
+      List<CharacterModel> characters) async {
+
+    final box =
+    HiveService.getCharacterBox();
+
+    final Map<int, CharacterModel> map = {
+      for (var c in characters)
+        c.id: c
+    };
+
+    await box.putAll(map);
+  }
   /// Add Favorite
   void addFavorite(int id) {
     final box = Boxes.getFavoritesBox();
@@ -85,4 +114,5 @@ class CharacterLocalDataSource {
       ),
     );
   }
+
 }

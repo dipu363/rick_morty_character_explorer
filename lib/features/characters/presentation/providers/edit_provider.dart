@@ -18,4 +18,5 @@ class EditNotifier {
   void saveEdit(EditedCharacterModel edited) {
     repository.saveEditedCharacter(edited);
   }
+
 }

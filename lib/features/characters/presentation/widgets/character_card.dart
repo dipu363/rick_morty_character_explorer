@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/models/character_model.dart';
 import '../providers/favorite_provider.dart';
+import '../screens/character_detail_screen.dart';
 
 class CharacterCard extends ConsumerWidget {
   final CharacterModel character;
@@ -37,9 +38,19 @@ class CharacterCard extends ConsumerWidget {
           },
         ),
 
-        onTap: () {
-          /// Detail navigation later
-        },
+          onTap: () {
+
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) =>
+                    CharacterDetailScreen(
+                      character: character,
+                    ),
+              ),
+            );
+
+          }
       ),
     );
   }

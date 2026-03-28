@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 class Boxes {
   static const String characters = 'charactersBox';
-  static const String favorites = 'favoritesBox';
+  static const String favorites = 'favorites';
   static const String edits = 'editsBox';
 
   static Box getCharactersBox() =>

@@ -1,28 +1,33 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_riverpod/legacy.dart';
+import '../../../../core/storage/hive_service.dart';
 
-import '../../data/repository/character_repository.dart';
-import 'character_providers.dart';
-
-final favoriteProvider = StateNotifierProvider<FavoriteNotifier, Set<int>>((
-  ref,
-) {
-  final repository = ref.watch(characterRepositoryProvider);
-
-  return FavoriteNotifier(repository);
-});
+final favoriteProvider = StateNotifierProvider<FavoriteNotifier, Set<int>>(
+  (ref) => FavoriteNotifier(),
+);
 
 class FavoriteNotifier extends StateNotifier<Set<int>> {
-  final CharacterRepository repository;
+  FavoriteNotifier() : super({}) {
+    _loadFavorites();
+  }
 
-  FavoriteNotifier(this.repository) : super({});
+  void _loadFavorites() {
+    final box = HiveService.getFavoriteBox();
+
+    final ids = box.values.toSet();
+
+    state = ids;
+  }
 
   void toggleFavorite(int id) {
-    repository.toggleFavorite(id);
+    final box = HiveService.getFavoriteBox();
 
     if (state.contains(id)) {
+      box.delete(id);
+
       state = {...state}..remove(id);
     } else {
+      box.put(id, id);
+
       state = {...state, id};
     }
   }

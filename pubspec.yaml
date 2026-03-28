@@ -1,17 +1,21 @@
 name: rick_morty_character_explorer
 description: "Rick and Morty Character Explorer with offline-first support."
 publish_to: 'none'
+
 version: 1.0.0+1
+
 environment:
-  sdk: ^3.10.8
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+
   cupertino_icons: ^1.0.8
   dio: ^5.9.2
   connectivity_plus: ^7.0.0
-  flutter_riverpod: ^3.3.1
+  flutter_riverpod: ^2.6.1
+
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   cached_network_image: ^3.4.1
@@ -21,10 +25,11 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^6.0.0
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.9
+
 flutter:
-
   uses-material-design: true
-
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
