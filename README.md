@@ -1,4 +1,4 @@
-# rick_morty_character_explorer
+# Rick & Morty Character Explorer
 Rick and Morty Character Explorer with offline-first support.
 
 # Used Tech Stack
@@ -8,7 +8,7 @@ Rick and Morty Character Explorer with offline-first support.
 - Pagination: Infinite scroll using ScrollController
 
 ## Run Instructions
-- [git clone [(https://github.com/dipu363/rick_morty_character_explorer.git)](https://github.com/dipu363/rick_morty_character_explorer)
+- [git clone [(https://github.com/dipu363/rick_morty_character_explorer.git)](https://github.com/dipu363/rick_morty_character_explorer)]
 - cd rick_morty_character_explorer
 - flutter pub get
 - flutter run
