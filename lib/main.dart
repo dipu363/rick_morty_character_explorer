@@ -1,24 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:rick_morty_character_explorer/features/characters/data/datasource/character_remote_ds.dart';
 
-import 'core/storage/boxes.dart';
+import 'core/network/api_service.dart';
 import 'core/storage/hive_service.dart';
+import 'features/characters/data/datasource/character_local_ds.dart';
+import 'features/characters/data/repository/character_repository.dart';
 
 
-/// Temporary test method
-void testHive() {
-  final box = Boxes.getFavoritesBox();
+Future<void> testRepository() async {
 
-  box.put(1, true);
+  final remote =
+  CharacterRemoteDataSource(
+      apiService: ApiService());
 
-  final value = box.get(1);
+  final local =
+  CharacterLocalDataSource();
 
-  print("Favorite Test: $value");
+  final repository =
+  CharacterRepository(
+      remote: remote,
+      local: local);
+
+  final characters =
+  await repository.fetchCharacters(1);
+
+  print(
+      "Repository Characters: ${characters.length}");
 }
+
 void main() async{
 
   WidgetsFlutterBinding.ensureInitialized();
   await HiveService.init();
-  testHive();
+  await testRepository();
+
   runApp(const MyApp());
 }
 
