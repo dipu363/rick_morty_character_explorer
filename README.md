@@ -25,6 +25,6 @@ Rick and Morty Character Explorer with offline-first support.
 ✔ Clean Architecture
 
 ## Author
- Giyas Uddin
- Mobile Application Developer
- Medical System Company Ltd. (Medisys)
+ Giyas Uddin, 
+ Mobile Application Developer, 
+ Medical System Company Ltd. (Medisys).
